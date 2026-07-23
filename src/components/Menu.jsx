@@ -4,78 +4,101 @@ import { menuList, foodList } from '../constants/menuData';
 import { addIconWhite, addIconGreen, removeIconRed } from '../constants/images';
 import { useCart } from '../context/CartContext';
 
-const Menu = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
+export default function Menu() {
+  const [selected, setSelected] = useState('All');
   const { addToCart, removeFromCart, getItemCount } = useCart();
 
-  const filteredFoods = selectedCategory === 'All' 
-    ? foodList 
-    : foodList.filter(food => food.category === selectedCategory);
+  const foods = selected === 'All'
+    ? foodList
+    : foodList.filter(f => f.category === selected);
+
+  const toggle = (name) => setSelected(p => p === name ? 'All' : name);
 
   return (
     <section className="menu-section" id="menu">
-      <div className="menu-container">
-        <h2>Explore Our Menu</h2>
-        <p className="menu-description">
-          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Soluta doloremque nesciunt eaque voluptates fugit ex enim sapiente, sit molestias? Quasi!
-        </p>
 
-        <div className="categories">
-          {menuList.map((category, index) => (
-            <div 
-              key={index} 
-              className={`category-item ${selectedCategory === category.menu_name ? 'active' : ''}`}
-              onClick={() => setSelectedCategory(category.menu_name)}
-            >
-              <div className="category-circle">
-                <img src={category.menu_image} alt={category.menu_name} />
-              </div>
-              <p>{category.menu_name}</p>
+      {/* Header */}
+      <p className="section-tag">Our Menu</p>
+      <h2 className="section-heading">Explore Every Craving</h2>
+      <p className="section-sub">
+        From crisp salads to indulgent desserts — handpicked dishes made fresh, delivered fast.
+      </p>
+
+      {/* Category pills */}
+      <div className="categories" role="list" aria-label="Food categories">
+        {menuList.map((cat, i) => (
+          <div
+            key={i}
+            role="listitem"
+            className={`cat-item${selected === cat.menu_name ? ' active' : ''}`}
+            onClick={() => toggle(cat.menu_name)}
+            tabIndex={0}
+            onKeyDown={e => e.key === 'Enter' && toggle(cat.menu_name)}
+          >
+            <div className="cat-img-wrap">
+              <img src={cat.menu_image} alt={cat.menu_name} />
             </div>
-          ))}
-        </div>
+            <span className="cat-label">{cat.menu_name}</span>
+          </div>
+        ))}
+      </div>
 
-        <h2 className="dishes-title">Top Dishes Near You</h2>
+      {/* Row header */}
+      <div className="dishes-row">
+        <h2 className="dishes-title">
+          {selected === 'All' ? 'Top Dishes Near You' : selected}
+        </h2>
+        <span className="dishes-badge">{foods.length} items</span>
+      </div>
 
-        <div className="dishes-grid">
-          {filteredFoods.map((dish) => {
-            const itemCount = getItemCount(dish._id);
-            return (
-              <div key={dish._id} className="dish-card">
-                <div className="dish-image">
-                  <img src={dish.image} alt={dish.name} />
-                  {itemCount === 0 ? (
-                    <button className="add-btn" onClick={() => addToCart(dish._id)}>
-                      <img src={addIconWhite} alt="Add" />
+      {/* Grid */}
+      <div className="food-grid">
+        {foods.map(dish => {
+          const qty = getItemCount(dish._id);
+          return (
+            <article key={dish._id} className="food-card">
+              <div className="food-img-wrap">
+                <img src={dish.image} alt={dish.name} loading="lazy" />
+                <span className="food-chip">{dish.category}</span>
+
+                {qty === 0 ? (
+                  <button
+                    className="add-btn"
+                    onClick={() => addToCart(dish._id)}
+                    aria-label={`Add ${dish.name}`}
+                  >
+                    <img src={addIconWhite} alt="Add" />
+                  </button>
+                ) : (
+                  <div className="qty-counter" role="group" aria-label={`${dish.name} quantity`}>
+                    <button onClick={() => removeFromCart(dish._id)} aria-label="Decrease">
+                      <img src={removeIconRed} alt="−" />
                     </button>
-                  ) : (
-                    <div className="item-counter">
-                      <button onClick={() => removeFromCart(dish._id)}>
-                        <img src={removeIconRed} alt="Remove" />
-                      </button>
-                      <span>{itemCount}</span>
-                      <button onClick={() => addToCart(dish._id)}>
-                        <img src={addIconGreen} alt="Add" />
-                      </button>
-                    </div>
-                  )}
-                </div>
-                <div className="dish-info">
-                  <h3>{dish.name}</h3>
-                  <div className="dish-rating">
-                    {[...Array(5)].map((_, i) => (
-                      <span key={i} className={i < 4 ? 'star filled' : 'star'}>★</span>
-                    ))}
+                    <span>{qty}</span>
+                    <button onClick={() => addToCart(dish._id)} aria-label="Increase">
+                      <img src={addIconGreen} alt="+" />
+                    </button>
                   </div>
-                  <p className="dish-price">Ghc {dish.price}</p>
+                )}
+              </div>
+
+              <div className="food-info">
+                <h3 className="food-name" title={dish.name}>{dish.name}</h3>
+                <div className="food-meta">
+                  <div className="food-stars" aria-label="4 out of 5 stars">
+                    {[...Array(5)].map((_, i) => (
+                      <span key={i} className={`star${i < 4 ? ' on' : ''}`}>★</span>
+                    ))}
+                    <span className="star-count">(4.0)</span>
+                  </div>
+                  <span className="food-price">Ghc {dish.price}</span>
                 </div>
               </div>
-            );
-          })}
-        </div>
+            </article>
+          );
+        })}
       </div>
+
     </section>
   );
-};
-
-export default Menu;
+}

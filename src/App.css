@@ -1,27 +1,14 @@
-* {
-  scroll-behavior: smooth;
-  box-sizing: border-box;
-}
-
 .App {
   min-height: 100vh;
-  background-color: #fff;
+  background: var(--bg);
 }
 
-.app-container {
+/* Shared page wrapper — keeps content within max-width */
+.page-wrap {
   max-width: 1200px;
   margin: 0 auto;
-  padding: 0 2rem;
+  padding: 0 var(--sp-8);
 }
 
-@media (max-width: 768px) {
-  .app-container {
-    padding: 0 1.5rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .app-container {
-    padding: 0 1rem;
-  }
-}
+@media (max-width: 768px)  { .page-wrap { padding: 0 var(--sp-5); } }
+@media (max-width: 480px)  { .page-wrap { padding: 0 var(--sp-4); } }

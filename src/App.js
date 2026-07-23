@@ -8,12 +8,16 @@ import CartModal from './components/CartModal';
 import { CartProvider } from './context/CartContext';
 
 function App() {
+  const scrollToMenu = () => {
+    document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  };
+
   return (
     <CartProvider>
       <div className="App">
-        <div className="app-container">
+        <div className="page-wrap">
           <Header />
-          <Hero />
+          <Hero onViewMenu={scrollToMenu} />
           <Menu />
           <AppDownload />
         </div>

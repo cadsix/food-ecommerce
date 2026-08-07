@@ -1,6 +1,6 @@
 import React from 'react';
 import '../styles/Footer.css';
-import { facebookIcon, twitterIcon, linkedinIcon } from '../constants/images';
+import { twitterIcon } from '../constants/images';
 
 const IconGithub = () => (
   <svg viewBox="0 0 24 24" fill="currentColor" width="16" height="16" aria-hidden="true">

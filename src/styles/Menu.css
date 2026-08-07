@@ -2,7 +2,7 @@
    MENU SECTION
 ═══════════════════════════════════════ */
 .menu-section {
-  padding: var(--sp-16) 0 var(--sp-8);
+  padding: 5rem 0 3rem;
 }
 
 /* ── Section header ── */
@@ -48,14 +48,11 @@
 /* ── Category pills ── */
 .categories {
   display: flex;
-  gap: var(--sp-3);
-  overflow-x: auto;
-  padding-bottom: var(--sp-2);
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: var(--sp-4) var(--sp-5);
   margin-bottom: var(--sp-8);
-  scrollbar-width: none;
 }
-
-.categories::-webkit-scrollbar { display: none; }
 
 .cat-item {
   display: flex;
@@ -63,7 +60,6 @@
   align-items: center;
   gap: var(--sp-2);
   cursor: pointer;
-  flex-shrink: 0;
   transition: transform var(--t-base) var(--ease);
 }
 
@@ -155,8 +151,8 @@
 .food-card {
   border-radius: var(--r-xl);
   overflow: hidden;
-  border: 1px solid var(--border-faint);
-  background: var(--bg);
+  border: 1px solid var(--border-lt);
+  background: var(--white);
   transition: transform var(--t-slow) var(--ease),
               box-shadow var(--t-slow) var(--ease),
               border-color var(--t-base) var(--ease);

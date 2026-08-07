@@ -1,100 +1,131 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,wght@0,700;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&display=swap');
 
 /* ─────────────────────────────────────────
-   DESIGN TOKENS
+   LIGHT MODE (default)
 ───────────────────────────────────────── */
 :root {
-  /* Brand */
-  --brand:        #e8430a;
-  --brand-light:  #ff6535;
-  --brand-dark:   #c23608;
-  --brand-soft:   rgba(232, 67, 10, 0.1);
-  --brand-glow:   rgba(232, 67, 10, 0.22);
+  --brand:      #e8430a;
+  --brand-hov:  #d03a06;
+  --brand-soft: #fff3ef;
+  --brand-glow: rgba(232,67,10,0.24);
 
-  /* Surface */
-  --bg:           #ffffff;
-  --bg-subtle:    #faf9f7;
-  --bg-muted:     #f3f1ed;
-  --border:       #e9e6e0;
-  --border-faint: #f2f0ec;
+  --cream:      #f7f4ef;
+  --cream-2:    #f0ece4;
+  --white:      #ffffff;
+  --border:     #e4dfd6;
+  --border-lt:  #ece8e1;
 
-  /* Text */
-  --ink:          #18181b;
-  --ink-2:        #52504d;
-  --ink-3:        #9e9b96;
+  --ink:        #1c1a17;
+  --ink-2:      #5a5650;
+  --ink-3:      #9c9790;
 
-  /* Dark (footer / app-download) */
-  --coal:         #0f0f0e;
-  --coal-2:       #1a1918;
-  --coal-3:       #272522;
+  --dark:       #111009;
+  --dark-2:     #1e1c17;
+  --dark-3:     #2a2720;
 
-  /* Utility */
-  --gold:         #f4a007;
-  --green:        #16a34a;
+  --gold:       #f59e0b;
+  --green:      #22a55b;
 
-  /* Elevation */
-  --shadow-xs:  0 1px 2px rgba(0,0,0,0.05);
-  --shadow-sm:  0 1px 4px rgba(0,0,0,0.06), 0 2px 8px rgba(0,0,0,0.04);
-  --shadow-md:  0 4px 16px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
-  --shadow-lg:  0 8px 32px rgba(0,0,0,0.10), 0 2px 8px rgba(0,0,0,0.05);
-  --shadow-xl:  0 20px 56px rgba(0,0,0,0.14);
+  /* glass nav */
+  --glass-bg:     rgba(247,244,239,0.72);
+  --glass-border: rgba(228,223,214,0.6);
 
-  /* Radius */
-  --r-xs:   4px;
-  --r-sm:   8px;
-  --r-md:   12px;
-  --r-lg:   16px;
-  --r-xl:   20px;
-  --r-2xl:  28px;
-  --r-full: 9999px;
+  /* surfaces */
+  --surface:    var(--white);
+  --surface-2:  var(--cream);
 
-  /* Type */
-  --font-body:    'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-display: 'Fraunces', Georgia, serif;
+  --sh-xs: 0 1px 2px rgba(0,0,0,0.04);
+  --sh-sm: 0 2px 8px rgba(0,0,0,0.06);
+  --sh-md: 0 6px 24px rgba(0,0,0,0.08), 0 1px 4px rgba(0,0,0,0.04);
+  --sh-lg: 0 12px 40px rgba(0,0,0,0.10);
+  --sh-xl: 0 24px 64px rgba(0,0,0,0.13);
 
-  /* Spacing scale */
-  --sp-1: 0.25rem;
-  --sp-2: 0.5rem;
-  --sp-3: 0.75rem;
-  --sp-4: 1rem;
-  --sp-5: 1.25rem;
-  --sp-6: 1.5rem;
-  --sp-8: 2rem;
-  --sp-10: 2.5rem;
-  --sp-12: 3rem;
-  --sp-16: 4rem;
-  --sp-20: 5rem;
+  --r-sm:  8px;  --r-md: 14px;  --r-lg: 20px;
+  --r-xl:  28px; --r-2xl: 36px; --r-f:  9999px;
 
-  /* Easing */
-  --ease: cubic-bezier(0.4, 0, 0.2, 1);
-  --t-fast: 0.18s;
-  --t-base: 0.24s;
-  --t-slow: 0.4s;
+  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
+  --font-ser:  'Fraunces', Georgia, serif;
+
+  --ease:   cubic-bezier(0.4, 0, 0.2, 1);
+  --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* compat aliases */
+  --font-body:    var(--font-sans);
+  --font-display: var(--font-ser);
+  --bg:           var(--cream);
+  --bg-subtle:    var(--cream-2);
+  --bg-muted:     var(--cream-2);
+  --border-faint: var(--border-lt);
+  --coal:         var(--dark);
+  --coal-2:       var(--dark-2);
+  --coal-3:       var(--dark-3);
+  --shadow-sm:    var(--sh-sm);
+  --shadow-md:    var(--sh-md);
+  --shadow-lg:    var(--sh-lg);
+  --shadow-xl:    var(--sh-xl);
+  --r-xs: 4px;   --r-full: var(--r-f);
+  --t-fast: 0.16s; --t-base: 0.24s; --t-slow: 0.4s;
+  --sp-1:.25rem; --sp-2:.5rem;  --sp-3:.75rem; --sp-4:1rem;
+  --sp-5:1.25rem; --sp-6:1.5rem; --sp-8:2rem;  --sp-10:2.5rem;
+  --sp-12:3rem;  --sp-16:4rem;  --sp-20:5rem;
+  --brand-light: var(--brand-hov);
 }
 
 /* ─────────────────────────────────────────
-   RESET
+   DARK MODE — toggled via [data-theme="dark"] on <html>
 ───────────────────────────────────────── */
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-html { scroll-behavior: smooth; font-size: 16px; }
+[data-theme="dark"] {
+  --cream:      #141210;
+  --cream-2:    #1e1b18;
+  --white:      #1e1b18;
+  --border:     #2e2b26;
+  --border-lt:  #262320;
+
+  --ink:        #f0ece4;
+  --ink-2:      #a09890;
+  --ink-3:      #5e5a54;
+
+  --brand-soft: rgba(232,67,10,0.15);
+
+  --glass-bg:     rgba(20,18,16,0.75);
+  --glass-border: rgba(255,255,255,0.08);
+
+  --surface:    #1e1b18;
+  --surface-2:  #141210;
+
+  --sh-sm: 0 2px 8px rgba(0,0,0,0.22);
+  --sh-md: 0 6px 24px rgba(0,0,0,0.32), 0 1px 4px rgba(0,0,0,0.18);
+  --sh-lg: 0 12px 40px rgba(0,0,0,0.40);
+  --sh-xl: 0 24px 64px rgba(0,0,0,0.50);
+
+  /* compat aliases */
+  --bg:        var(--cream);
+  --bg-subtle: var(--cream-2);
+  --bg-muted:  var(--cream-2);
+}
+
+/* ─────────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────────── */
+*,*::before,*::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
 
 body {
-  font-family: var(--font-body);
-  background: var(--bg);
+  font-family: var(--font-sans);
+  background: var(--cream);
   color: var(--ink);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   overflow-x: hidden;
   line-height: 1.6;
+  transition: background 0.3s var(--ease), color 0.3s var(--ease);
 }
 
 img    { max-width: 100%; height: auto; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
-a      { text-decoration: none; color: inherit; -webkit-tap-highlight-color: transparent; }
+a      { text-decoration: none; color: inherit; }
 ul     { list-style: none; }
 
-/* Custom scrollbar */
-::-webkit-scrollbar       { width: 5px; height: 5px; }
-::-webkit-scrollbar-track { background: var(--bg-subtle); }
-::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--r-full); }
-::-webkit-scrollbar-thumb:hover { background: var(--ink-3); }
+::-webkit-scrollbar       { width: 5px; }
+::-webkit-scrollbar-track { background: var(--cream-2); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: var(--r-f); }

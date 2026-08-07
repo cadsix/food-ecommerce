@@ -1,0 +1,60 @@
+/* ═══════════════════════════════════════
+   DARK MODE OVERRIDES
+   Applied via [data-theme="dark"] on <html>
+   All components inherit via CSS variables —
+   this file handles exceptions that use
+   hard-coded colors.
+═══════════════════════════════════════ */
+
+/* ── Page & layout ── */
+[data-theme="dark"] .App           { background: var(--cream); }
+[data-theme="dark"] .hiw           { background: var(--cream); }
+
+/* ── Food cards ── */
+[data-theme="dark"] .food-card     { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .food-chip     { background: rgba(255,255,255,0.08); color: var(--ink); }
+
+/* ── Category circles ── */
+[data-theme="dark"] .cat-img-wrap  { background: var(--cream-2); border-color: var(--border); }
+
+/* ── How it works cards ── */
+[data-theme="dark"] .hiw-card      { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .hiw-icon-wrap { background: var(--cream-2); border-color: var(--border); }
+
+/* ── Special offer ── */
+[data-theme="dark"] .special-inner { background: var(--surface); border-color: var(--border); }
+
+/* ── Hero stats strip ── */
+[data-theme="dark"] .hero-stat     { background: var(--surface); }
+[data-theme="dark"] .hero-stats    { background: var(--border); border-color: var(--border); }
+
+/* ── Cart panel ── */
+[data-theme="dark"] .cart-panel    { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .cart-head     { border-color: var(--border); }
+[data-theme="dark"] .cart-item     { background: var(--cream-2); border-color: var(--border); }
+[data-theme="dark"] .cart-foot     { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .promo-input   { background: var(--cream-2); border-color: var(--border); color: var(--ink); }
+[data-theme="dark"] .cart-count-pill { background: var(--cream-2); border-color: var(--border); }
+
+/* ── Auth modal ── */
+[data-theme="dark"] .auth-modal    { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .auth-close    { background: var(--cream-2); border-color: var(--border); }
+[data-theme="dark"] .form-field input {
+  background: var(--cream-2);
+  border-color: var(--border);
+  color: var(--ink);
+}
+
+/* ── Qty counter on food cards ── */
+[data-theme="dark"] .qty-counter       { background: var(--surface); border-color: var(--border); }
+[data-theme="dark"] .qty-counter span  { color: var(--ink); }
+
+/* ── Dishes badge ── */
+[data-theme="dark"] .dishes-badge { background: var(--cream-2); border-color: var(--border); }
+
+/* ── Cart badge border matches dark bg ── */
+[data-theme="dark"] .cart-badge { border-color: var(--dark); }
+
+/* ── Scrollbar ── */
+[data-theme="dark"] ::-webkit-scrollbar-track { background: var(--dark-2); }
+[data-theme="dark"] ::-webkit-scrollbar-thumb { background: var(--dark-3); }

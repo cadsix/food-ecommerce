@@ -1,0 +1,91 @@
+/* ── SPECIAL OFFER SECTION ── */
+.special {
+  padding: 2rem 0 5rem;
+}
+
+.special-inner {
+  background: var(--white);
+  border: 1px solid var(--border-lt);
+  border-radius: var(--r-2xl);
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  min-height: 380px;
+}
+
+/* Left: food image */
+.special-img {
+  position: relative;
+  overflow: hidden;
+  background: var(--cream-2);
+}
+.special-img img {
+  width: 100%; height: 100%;
+  object-fit: cover;
+  transition: transform 6s var(--ease);
+}
+.special-inner:hover .special-img img { transform: scale(1.04); }
+
+/* Discount badge */
+.special-badge {
+  position: absolute;
+  top: 1.25rem; left: 1.25rem;
+  width: 60px; height: 60px;
+  border-radius: 50%;
+  background: var(--brand);
+  color: #fff;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  box-shadow: 0 4px 14px var(--brand-glow);
+  animation: spin-slow 10s linear infinite;
+}
+.special-badge strong { font-size: 1rem; font-weight: 800; line-height: 1; }
+.special-badge span   { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; }
+@keyframes spin-slow { to { transform: rotate(360deg); } }
+
+/* Right: content */
+.special-content {
+  padding: 3rem 2.75rem;
+  display: flex; flex-direction: column;
+  justify-content: center; gap: 1.1rem;
+}
+
+.special-content h2 {
+  font-family: var(--font-ser);
+  font-size: clamp(1.75rem, 2.8vw, 2.4rem);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--ink);
+}
+.special-content h2 em { font-style: italic; color: var(--brand); }
+
+.special-content p {
+  font-size: 0.92rem; line-height: 1.65; color: var(--ink-2);
+  max-width: 340px;
+}
+
+.special-price {
+  display: flex; align-items: baseline; gap: 0.65rem;
+}
+.special-price .new-price {
+  font-family: var(--font-ser);
+  font-size: 2.2rem; font-weight: 700;
+  color: var(--brand); letter-spacing: -0.03em;
+}
+.special-price .old-price {
+  font-size: 1.1rem; font-weight: 500;
+  color: var(--ink-3);
+  text-decoration: line-through;
+}
+
+@media (max-width:768px){
+  .special { padding: 1rem 0 4rem; }
+  .special-inner { grid-template-columns: 1fr; }
+  .special-img   { height: 240px; }
+  .special-content { padding: 2rem 1.75rem; }
+}
+@media (max-width:480px){
+  .special-content { padding: 1.5rem 1.25rem; gap:.85rem; }
+  .special-price .new-price { font-size: 1.85rem; }
+}

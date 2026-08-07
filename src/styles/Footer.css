@@ -2,8 +2,8 @@
    FOOTER
 ═══════════════════════════════════════ */
 .footer {
-  background: var(--coal);
-  margin-top: var(--sp-16);
+  background: var(--dark);
+  margin-top: 0;
   position: relative;
   overflow: hidden;
 }
@@ -79,14 +79,17 @@
   transform: translateY(-2px);
 }
 
-.social-btn img {
+.social-btn img,
+.social-btn svg {
   width: 16px;
   height: 16px;
   filter: brightness(0) invert(0.6);
   transition: filter var(--t-fast) var(--ease);
+  flex-shrink: 0;
 }
-
+.social-btn svg { filter: none; color: rgba(255,255,255,0.55); }
 .social-btn:hover img { filter: brightness(0) invert(0.85); }
+.social-btn:hover svg { color: rgba(255,255,255,0.9); }
 
 /* ── Nav cols ── */
 .footer-col h4 {

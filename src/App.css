@@ -1,14 +1,38 @@
-.App {
-  min-height: 100vh;
-  background: var(--bg);
-}
+.App { min-height: 100vh; background: var(--cream); }
 
-/* Shared page wrapper — keeps content within max-width */
-.page-wrap {
-  max-width: 1200px;
+.wrap {
+  max-width: 1180px;
   margin: 0 auto;
-  padding: 0 var(--sp-8);
+  padding: 0 2rem;
 }
 
-@media (max-width: 768px)  { .page-wrap { padding: 0 var(--sp-5); } }
-@media (max-width: 480px)  { .page-wrap { padding: 0 var(--sp-4); } }
+@media (max-width: 768px)  { .wrap { padding: 0 1.25rem; } }
+@media (max-width: 480px)  { .wrap { padding: 0 1rem; } }
+
+/* shared section label */
+.label {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--brand);
+}
+.label::before {
+  content: '';
+  width: 20px;
+  height: 2px;
+  background: var(--brand);
+  border-radius: var(--r-f);
+}
+
+/* shared display heading */
+.display {
+  font-family: var(--font-ser);
+  font-weight: 700;
+  letter-spacing: -0.03em;
+  line-height: 1.12;
+  color: var(--ink);
+}

@@ -18,8 +18,7 @@ export default function Menu() {
     <section className="menu-section" id="menu">
 
       {/* Header */}
-      <p className="section-tag">Our Menu</p>
-      <h2 className="section-heading">Explore Every Craving</h2>
+      <p className="section-tag">Our Menu</p>      <h2 className="section-heading">Explore Every Craving</h2>
       <p className="section-sub">
         From crisp salads to indulgent desserts — handpicked dishes made fresh, delivered fast.
       </p>

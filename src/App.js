@@ -1,7 +1,11 @@
 import './App.css';
+import './styles/DarkMode.css';
 import Header from './components/Header';
 import Hero from './components/Hero';
+import HowItWorks from './components/HowItWorks';
 import Menu from './components/Menu';
+import SpecialOffer from './components/SpecialOffer';
+import Newsletter from './components/Newsletter';
 import AppDownload from './components/AppDownload';
 import Footer from './components/Footer';
 import CartModal from './components/CartModal';
@@ -15,12 +19,21 @@ function App() {
   return (
     <CartProvider>
       <div className="App">
-        <div className="page-wrap">
-          <Header />
+        <Header />
+
+        <div className="wrap">
           <Hero onViewMenu={scrollToMenu} />
+        </div>
+
+        <HowItWorks />
+
+        <div className="wrap">
           <Menu />
+          <SpecialOffer />
+          <Newsletter />
           <AppDownload />
         </div>
+
         <Footer />
         <CartModal />
       </div>

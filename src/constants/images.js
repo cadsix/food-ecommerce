@@ -13,3 +13,5 @@ export const facebookIcon = require('../assets/facebook_icon.png');
 export const twitterIcon = require('../assets/twitter_icon.png');
 export const crossIcon = require('../assets/cross_icon.png');
 export const ratingStars = require('../assets/rating_starts.png');
+export const food_5 = require('../assets/food_5.png');
+export const food_1 = require('../assets/food_1.png');

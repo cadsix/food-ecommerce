@@ -1,7 +1,7 @@
 export const menuList = [
   { menu_name: "Salad", menu_image: require('../assets/menu_1.png') },
   { menu_name: "Rolls", menu_image: require('../assets/menu_2.png') },
-  { menu_name: "Deserts", menu_image: require('../assets/menu_3.png') },
+  { menu_name: "Desserts", menu_image: require('../assets/menu_3.png') },
   { menu_name: "Sandwich", menu_image: require('../assets/menu_4.png') },
   { menu_name: "Cake", menu_image: require('../assets/menu_5.png') },
   { menu_name: "Pure Veg", menu_image: require('../assets/menu_6.png') },
@@ -12,258 +12,386 @@ export const menuList = [
 export const foodList = [
   {
     _id: "1",
-    name: "Greek salad",
+    name: "Greek Salad",
     image: require('../assets/food_1.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad"
+    description: "Crisp romaine, Kalamata olives, sheep's milk feta, cherry tomatoes, and red onions with oregano vinaigrette.",
+    category: "Salad",
+    tag: "Organic",
+    rating: 4.9,
+    reviews: 142,
+    prepTime: "10-15 min"
   },
   {
     _id: "2",
-    name: "Veg salad",
+    name: "Veggie Glow Salad",
     image: require('../assets/food_2.png'),
     price: 18,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad"
+    description: "Baby spinach, shaved heirloom radishes, Haas avocado, roasted pumpkin seeds, and citrus tahini drizzle.",
+    category: "Salad",
+    tag: "Plant-Based",
+    rating: 4.8,
+    reviews: 98,
+    prepTime: "10-12 min"
   },
   {
     _id: "3",
-    name: "Clover Salad",
+    name: "Clover Green Salad",
     image: require('../assets/food_3.png'),
     price: 16,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad"
+    description: "Micro clover sprouts, crisp green apples, candied walnuts, and aged goat cheese with white balsamic glaze.",
+    category: "Salad",
+    tag: "Chef's Special",
+    rating: 4.9,
+    reviews: 76,
+    prepTime: "12-15 min"
   },
   {
     _id: "4",
-    name: "Chicken Salad",
+    name: "Grilled Chicken Salad",
     image: require('../assets/food_4.png'),
     price: 24,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Salad"
+    description: "Herb-grilled free-range chicken, charred sweet corn, avocado, smoked gouda, and buttermilk green goddess.",
+    category: "Salad",
+    tag: "High Protein",
+    rating: 5.0,
+    reviews: 215,
+    prepTime: "15-20 min"
   },
   {
     _id: "5",
     name: "Lasagna Rolls",
     image: require('../assets/food_5.png'),
     price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls"
+    description: "Delicate pasta ribbons stuffed with whipped whole-milk ricotta, mozzarella, and San Marzano marinara.",
+    category: "Rolls",
+    tag: "Bestseller",
+    rating: 4.9,
+    reviews: 310,
+    prepTime: "20-25 min"
   },
   {
     _id: "6",
-    name: "Peri Peri Rolls",
+    name: "Peri Peri Paneer Rolls",
     image: require('../assets/food_6.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls"
+    description: "Char-grilled spiced paneer, roasted bell peppers, and zesty peri-peri aioli rolled in warm flaky paratha.",
+    category: "Rolls",
+    tag: "Spicy",
+    rating: 4.8,
+    reviews: 184,
+    prepTime: "15-18 min"
   },
   {
     _id: "7",
-    name: "Chicken Rolls",
+    name: "Tandoori Chicken Rolls",
     image: require('../assets/food_7.png'),
     price: 20,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls"
+    description: "Slow-roasted tandoori chicken ribbons, pickled shallots, fresh mint chutney, and toasted cumin in flatbread.",
+    category: "Rolls",
+    tag: "House Special",
+    rating: 4.9,
+    reviews: 260,
+    prepTime: "15-20 min"
   },
   {
     _id: "8",
-    name: "Veg Rolls",
+    name: "Garden Veg Rolls",
     image: require('../assets/food_8.png'),
     price: 15,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Rolls"
+    description: "Crispy seasonal juliennes, spiced edamame mash, and sweet tamarind glaze wrapped in toasted tortilla.",
+    category: "Rolls",
+    tag: "Plant-Based",
+    rating: 4.7,
+    reviews: 112,
+    prepTime: "12-15 min"
   },
   {
     _id: "9",
-    name: "Ripple Ice Cream",
+    name: "Wild Berry Ripple Gelato",
     image: require('../assets/food_9.png'),
     price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts"
+    description: "Velvety Madagascar vanilla bean gelato swirled with tart wild blackberry reduction and dark chocolate flakes.",
+    category: "Desserts",
+    tag: "Handcrafted",
+    rating: 4.9,
+    reviews: 195,
+    prepTime: "5 min"
   },
   {
     _id: "10",
-    name: "Fruit Ice Cream",
+    name: "Tropical Fruit Ice Cream",
     image: require('../assets/food_10.png'),
     price: 22,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts"
+    description: "Small-batch churned cream infused with passionfruit coulis, sweet Alphonso mango, and dragonfruit chunks.",
+    category: "Desserts",
+    tag: "Seasonal",
+    rating: 4.8,
+    reviews: 88,
+    prepTime: "5 min"
   },
   {
     _id: "11",
-    name: "Jar Ice Cream",
+    name: "Salted Caramel Jar",
     image: require('../assets/food_11.png'),
     price: 10,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts"
+    description: "Layered salted butter caramel, roasted pecan brittle, and double cream gelato in a chilled glass jar.",
+    category: "Desserts",
+    tag: "Signature",
+    rating: 5.0,
+    reviews: 340,
+    prepTime: "5 min"
   },
   {
     _id: "12",
-    name: "Vanilla Ice Cream",
+    name: "Bourbon Vanilla Cream",
     image: require('../assets/food_12.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Deserts"
+    description: "Pure Bourbon vanilla bean churned with rich organic cream, served with a golden honeyed waffle crisp.",
+    category: "Desserts",
+    tag: "Classic",
+    rating: 4.8,
+    reviews: 120,
+    prepTime: "5 min"
   },
   {
     _id: "13",
-    name: "Chicken Sandwich",
+    name: "Crispy Chicken Sandwich",
     image: require('../assets/food_13.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich"
+    description: "Buttermilk-brined crispy chicken breast, dill pickle coins, and honey Dijon slaw on toasted brioche.",
+    category: "Sandwich",
+    tag: "Bestseller",
+    rating: 4.9,
+    reviews: 420,
+    prepTime: "15-20 min"
   },
   {
     _id: "14",
-    name: "Vegan Sandwich",
+    name: "Avocado Vegan Sourdough",
     image: require('../assets/food_14.png'),
     price: 18,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich"
+    description: "Smoked avocado slices, sun-dried tomatoes, basil hemp pesto, and peppery arugula on toasted artisan sourdough.",
+    category: "Sandwich",
+    tag: "Vegan",
+    rating: 4.8,
+    reviews: 165,
+    prepTime: "10-15 min"
   },
   {
     _id: "15",
-    name: "Grilled Sandwich",
+    name: "Triple-Cheese Grilled Melt",
     image: require('../assets/food_15.png'),
     price: 16,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich"
+    description: "Melted aged Gruyère, sharp white Vermont cheddar, and smoked provolone with a crisp garlic-herb crust.",
+    category: "Sandwich",
+    tag: "Comfort Food",
+    rating: 4.9,
+    reviews: 280,
+    prepTime: "12-15 min"
   },
   {
     _id: "16",
-    name: "Bread Sandwich",
+    name: "Roast Beef Baguette",
     image: require('../assets/food_16.png'),
     price: 24,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Sandwich"
+    description: "Thinly sliced rosemary roast beef, caramelized shallots, baby arugula, and horseradish crema in French baguette.",
+    category: "Sandwich",
+    tag: "Chef's Cut",
+    rating: 4.8,
+    reviews: 140,
+    prepTime: "12-16 min"
   },
   {
     _id: "17",
-    name: "Cup Cake",
+    name: "Espresso Cocoa Cupcake",
     image: require('../assets/food_17.png'),
     price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake"
+    description: "Dark Belgian chocolate sponge with whipped espresso Swiss meringue buttercream and roasted cocoa nibs.",
+    category: "Cake",
+    tag: "Freshly Baked",
+    rating: 4.9,
+    reviews: 175,
+    prepTime: "5 min"
   },
   {
     _id: "18",
-    name: "Vegan Cake",
+    name: "Raspberry Almond Vegan Cake",
     image: require('../assets/food_18.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake"
+    description: "Moist coconut-almond crumb layered with tart raspberry chia compote and dark chocolate silky ganache.",
+    category: "Cake",
+    tag: "Gluten-Free",
+    rating: 4.8,
+    reviews: 92,
+    prepTime: "5 min"
   },
   {
     _id: "19",
-    name: "Butterscotch Cake",
+    name: "Salted Butterscotch Cake",
     image: require('../assets/food_19.png'),
     price: 20,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake"
+    description: "Fluffy golden genoise sponge drizzled with warm brown-butter toffee, sea salt, and caramelized hazelnut praline.",
+    category: "Cake",
+    tag: "Decadent",
+    rating: 5.0,
+    reviews: 230,
+    prepTime: "5 min"
   },
   {
     _id: "20",
-    name: "Sliced Cake",
+    name: "Lemon Chiffon Sliced Cake",
     image: require('../assets/food_20.png'),
     price: 15,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Cake"
+    description: "Feather-light Meyer lemon chiffon layered with house citrus curd and whipped vanilla mascarpone frosting.",
+    category: "Cake",
+    tag: "Light & Citrusy",
+    rating: 4.7,
+    reviews: 110,
+    prepTime: "5 min"
   },
   {
     _id: "21",
-    name: "Garlic Mushroom",
+    name: "Pan-Seared Garlic Mushrooms",
     image: require('../assets/food_21.png'),
     price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg"
+    description: "Roasted cremini and king oyster mushrooms tossed in roasted garlic butter, fresh thyme, and sea salt flakes.",
+    category: "Pure Veg",
+    tag: "Gluten-Free",
+    rating: 4.9,
+    reviews: 205,
+    prepTime: "15-18 min"
   },
   {
     _id: "22",
-    name: "Fried Cauliflower",
+    name: "Crispy Spiced Cauliflower",
     image: require('../assets/food_22.png'),
     price: 22,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg"
+    description: "Golden spiced florets crisped to perfection, paired with velvet lemon tahini, sumac, and chopped parsley.",
+    category: "Pure Veg",
+    tag: "Crispy",
+    rating: 4.8,
+    reviews: 160,
+    prepTime: "15-20 min"
   },
   {
     _id: "23",
-    name: "Mix Veg Pulao",
+    name: "Saffron Veggie Pulao",
     image: require('../assets/food_23.png'),
     price: 10,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg"
+    description: "Fragrant long-grain basmati steamed with Kashmiri saffron, tender baby vegetables, and whole toasted spices.",
+    category: "Pure Veg",
+    tag: "Aromatic",
+    rating: 4.8,
+    reviews: 190,
+    prepTime: "18-22 min"
   },
   {
     _id: "24",
-    name: "Rice Zucchini",
+    name: "Herbed Zucchini Jasmine Rice",
     image: require('../assets/food_24.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pure Veg"
+    description: "Steamed jasmine rice sautéed with tender zucchini medallions, sweet charred leeks, and Meyer lemon zest.",
+    category: "Pure Veg",
+    tag: "Healthy",
+    rating: 4.7,
+    reviews: 85,
+    prepTime: "15-18 min"
   },
   {
     _id: "25",
-    name: "Cheese Pasta",
+    name: "Four-Cheese Rigatoni",
     image: require('../assets/food_25.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta"
+    description: "Al dente rigatoni tossed in a creamy fonduta of Taleggio, fontina, smoked mozzarella, and aged Parmigiano.",
+    category: "Pasta",
+    tag: "Rich & Creamy",
+    rating: 4.9,
+    reviews: 320,
+    prepTime: "18-22 min"
   },
   {
     _id: "26",
-    name: "Tomato Pasta",
+    name: "San Marzano Tomato Penne",
     image: require('../assets/food_26.png'),
     price: 18,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta"
+    description: "Slow-simmered pomodoro sauce made with sweet Italian tomatoes, torn fresh sweet basil, and extra virgin olive oil.",
+    category: "Pasta",
+    tag: "Classic",
+    rating: 4.8,
+    reviews: 240,
+    prepTime: "15-20 min"
   },
   {
     _id: "27",
-    name: "Creamy Pasta",
+    name: "Creamy Pecorino Fettuccine",
     image: require('../assets/food_27.png'),
     price: 16,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta"
+    description: "Silky egg fettuccine with roasted garlic cream, toasted Tellicherry black peppercorns, and aged Pecorino.",
+    category: "Pasta",
+    tag: "House Special",
+    rating: 4.9,
+    reviews: 295,
+    prepTime: "18-22 min"
   },
   {
     _id: "28",
-    name: "Chicken Pasta",
+    name: "Tuscan Chicken Fettuccine",
     image: require('../assets/food_28.png'),
     price: 24,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Pasta"
+    description: "Pan-seared chicken cutlets, sun-dried tomatoes, and tender baby spinach in a white wine garlic cream reduction.",
+    category: "Pasta",
+    tag: "High Protein",
+    rating: 5.0,
+    reviews: 380,
+    prepTime: "20-25 min"
   },
   {
     _id: "29",
-    name: "Butter Noodles",
+    name: "Brown Butter Garlic Noodles",
     image: require('../assets/food_29.png'),
     price: 14,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles"
+    description: "Handmade egg noodles swirled in nutty browned French butter, slow-roasted garlic chips, and snipped chives.",
+    category: "Noodles",
+    tag: "Comfort Food",
+    rating: 4.8,
+    reviews: 170,
+    prepTime: "12-15 min"
   },
   {
     _id: "30",
-    name: "Veg Noodles",
+    name: "Wok-Seared Vegetable Noodles",
     image: require('../assets/food_30.png'),
     price: 12,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles"
+    description: "Tender wheat noodles flash-fried with baby bok choy, crisp bell peppers, shiitake mushrooms, and tamari.",
+    category: "Noodles",
+    tag: "Plant-Based",
+    rating: 4.9,
+    reviews: 220,
+    prepTime: "12-16 min"
   },
   {
     _id: "31",
-    name: "Somen Noodles",
+    name: "Chilled Somen Sesame Noodles",
     image: require('../assets/food_31.png'),
     price: 20,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles"
+    description: "Delicate chilled Japanese somen in a ginger-dashi broth with scallions, toasted nori strips, and white sesame.",
+    category: "Noodles",
+    tag: "Refreshing",
+    rating: 4.8,
+    reviews: 130,
+    prepTime: "12-15 min"
   },
   {
     _id: "32",
-    name: "Cooked Noodles",
+    name: "Sichuan Chili Garlic Noodles",
     image: require('../assets/food_32.png'),
     price: 15,
-    description: "Food provides essential nutrients for overall health and well-being",
-    category: "Noodles"
+    description: "Smoky street-style noodles tossed over intense flame with house chili crisp, roasted garlic, and scallions.",
+    category: "Noodles",
+    tag: "Chef's Pick",
+    rating: 4.9,
+    reviews: 310,
+    prepTime: "14-18 min"
   }
 ];

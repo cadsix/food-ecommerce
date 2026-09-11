@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Fraunces:ital,opsz,wght@0,9..144,500;0,9..144,700;1,9..144,500;1,9..144,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Geist+Mono:wght@100..900&display=swap');
 
 /* ─────────────────────────────────────────
    LIGHT MODE (default)
@@ -43,15 +43,16 @@
   --r-sm:  8px;  --r-md: 14px;  --r-lg: 20px;
   --r-xl:  28px; --r-2xl: 36px; --r-f:  9999px;
 
-  --font-sans: 'Plus Jakarta Sans', system-ui, sans-serif;
-  --font-ser:  'Fraunces', Georgia, serif;
+  --font-sans: 'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+  --font-mono: 'Geist Mono', ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --font-ser:  'Geist', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
 
   --ease:   cubic-bezier(0.4, 0, 0.2, 1);
   --spring: cubic-bezier(0.34, 1.56, 0.64, 1);
 
   /* compat aliases */
   --font-body:    var(--font-sans);
-  --font-display: var(--font-ser);
+  --font-display: var(--font-sans);
   --bg:           var(--cream);
   --bg-subtle:    var(--cream-2);
   --bg-muted:     var(--cream-2);
@@ -125,6 +126,8 @@ img    { max-width: 100%; height: auto; display: block; }
 button { font-family: inherit; cursor: pointer; border: none; background: none; }
 a      { text-decoration: none; color: inherit; }
 ul     { list-style: none; }
+strong, b { font-weight: 600; }
+h1, h2, h3, h4, h5, h6 { font-weight: 600; }
 
 ::-webkit-scrollbar       { width: 5px; }
 ::-webkit-scrollbar-track { background: var(--cream-2); }

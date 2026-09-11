@@ -9,63 +9,79 @@ const IconArrow = () => (
   </svg>
 );
 
-const IconPlay = () => (
-  <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
-    <circle cx="7.5" cy="7.5" r="6.5" stroke="currentColor" strokeWidth="1.5"/>
-    <path d="M6 5l4 2.5L6 10V5z" fill="currentColor"/>
+const IconCompass = () => (
+  <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round">
+    <circle cx="12" cy="12" r="10" />
+    <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76" />
   </svg>
 );
 
-const AVATARS = ['AK', 'BM', 'CO', 'DJ'];
+const IconStarSolid = () => (
+  <svg width="13" height="13" viewBox="0 0 24 24" fill="#fbbf24" style={{ display: 'inline-block' }}>
+    <path d="M12 17.27L18.18 21l-1.64-7.03L22 9.24l-7.19-.61L12 2 9.19 8.63 2 9.24l5.46 4.73L5.82 21z" />
+  </svg>
+);
+
+const AVATARS = [
+  { initials: 'EA', bg: 'linear-gradient(135deg, #ff7a18, #af002d)' },
+  { initials: 'KM', bg: 'linear-gradient(135deg, #0ba360, #3cba92)' },
+  { initials: 'JD', bg: 'linear-gradient(135deg, #4facfe, #00f2fe)' },
+  { initials: 'SA', bg: 'linear-gradient(135deg, #f093fb, #f5576c)' }
+];
 
 export default function Hero({ onViewMenu }) {
   return (
     <section className="hero">
       <div className="wrap">
 
-        {/* Full-bleed banner — pie.jpg as background-image in CSS */}
+        {/* Full-bleed banner */}
         <div
           className="hero-banner"
           style={{ backgroundImage: "url('/logos/pie.jpg')" }}
           role="img"
-          aria-label="Fresh pie — hero background"
+          aria-label="Fresh artisan food background"
         >
 
-          {/* Text content sits on top of the image */}
+          {/* Text content */}
           <div className="hero-content">
 
-            <span className="hero-tag">
-              <span className="hero-tag-dot" aria-hidden="true" />
-              Free delivery on orders over Ghc 50
-            </span>
-
             <h1 className="hero-heading">
-              Order Your <em>Favourite</em> Food Here
+              Delicious food, <em>cooked fresh</em> &amp; delivered hot.
             </h1>
 
             <p className="hero-sub">
-              Fresh ingredients, bold flavours — delivered fast straight
-              to your doorstep. Hundreds of dishes, one easy order.
+              Fresh local ingredients, comforting recipes, and generous portions — 
+              prepared to order and delivered straight to your door in Accra.
             </p>
 
             <div className="hero-cta">
               <button className="btn-primary" onClick={onViewMenu}>
                 Explore Menu <IconArrow />
               </button>
-              <button className="btn-ghost" onClick={onViewMenu}>
-                <IconPlay />
-                How it works
+              <button className="btn-ghost" onClick={() => {
+                document.getElementById('mobile-app')?.scrollIntoView({ behavior: 'smooth' });
+              }}>
+                <IconCompass />
+                Get App
               </button>
             </div>
 
             <div className="hero-social-proof">
               <div className="hero-avatars" aria-hidden="true">
-                {AVATARS.map(a => <span key={a}>{a}</span>)}
+                {AVATARS.map((a, i) => (
+                  <span key={i} style={{ background: a.bg, border: '2px solid rgba(255,255,255,0.8)' }}>
+                    {a.initials}
+                  </span>
+                ))}
               </div>
               <div>
-                <div className="hero-stars">★★★★★</div>
+                <div className="hero-stars" style={{ display: 'flex', gap: '2px', alignItems: 'center' }}>
+                  {[...Array(5)].map((_, i) => (
+                    <IconStarSolid key={i} />
+                  ))}
+                </div>
                 <p className="hero-proof-text">
-                  <strong>2,400+</strong> happy customers
+                  Loved by <strong>2,500+</strong> food lovers
                 </p>
               </div>
             </div>
@@ -73,23 +89,23 @@ export default function Hero({ onViewMenu }) {
           </div>
         </div>
 
-        {/* Stats strip — attached below the banner */}
+        {/* Stats strip */}
         <div className="hero-stats">
           <div className="hero-stat">
             <span className="hero-stat-val">32<span>+</span></span>
-            <span className="hero-stat-lbl">Menu Items</span>
+            <span className="hero-stat-lbl">Dishes on Menu</span>
           </div>
           <div className="hero-stat">
             <span className="hero-stat-val">20<span>min</span></span>
-            <span className="hero-stat-lbl">Avg. Delivery</span>
+            <span className="hero-stat-lbl">Average Delivery</span>
           </div>
           <div className="hero-stat">
-            <span className="hero-stat-val">4.8<span>★</span></span>
+            <span className="hero-stat-val">4.9<span>★</span></span>
             <span className="hero-stat-lbl">Customer Rating</span>
           </div>
           <div className="hero-stat">
-            <span className="hero-stat-val">2k<span>+</span></span>
-            <span className="hero-stat-lbl">Happy Customers</span>
+            <span className="hero-stat-val">100<span>%</span></span>
+            <span className="hero-stat-lbl">Cooked to Order</span>
           </div>
         </div>
 

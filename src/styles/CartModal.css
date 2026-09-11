@@ -48,15 +48,15 @@
 }
 
 .cart-title {
-  font-family: var(--font-display);
-  font-size: 1.3rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
+  font-family: var(--font-sans);
+  font-size: 1.35rem;
+  font-weight: 600;
+  letter-spacing: -0.03em;
   color: var(--ink);
-  font-style: italic;
 }
 
 .cart-count-pill {
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   font-weight: 600;
   color: var(--ink-3);
@@ -164,13 +164,15 @@
 }
 
 .cart-item-unit {
+  font-family: var(--font-mono);
   font-size: 0.75rem;
   color: var(--ink-3);
 }
 
 .cart-item-qty {
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--brand);
   background: var(--brand-soft);
   padding: 0.1rem 0.4rem;
@@ -178,11 +180,12 @@
 }
 
 .cart-item-price {
-  font-size: 0.9rem;
-  font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.95rem;
+  font-weight: 600;
   color: var(--ink);
   flex-shrink: 0;
-  letter-spacing: -0.01em;
+  letter-spacing: -0.02em;
 }
 
 .cart-item-del {
@@ -209,8 +212,9 @@
 
 /* Promo */
 .promo-label {
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.08em;
   text-transform: uppercase;
   color: var(--ink-3);
@@ -279,18 +283,28 @@
   border-bottom: 1px dashed var(--border-faint);
 }
 
+.total-row span:last-child {
+  font-family: var(--font-mono);
+  font-weight: 600;
+}
+
 .total-row:last-child { border-bottom: none; }
 
 .total-row.grand {
   padding-top: 0.7rem;
   font-size: 1rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
   border-top: 1.5px solid var(--border);
   margin-top: var(--sp-2);
 }
 
-.total-row.grand span:last-child { color: var(--brand); font-size: 1.05rem; }
+.total-row.grand span:last-child {
+  color: var(--brand);
+  font-family: var(--font-mono);
+  font-size: 1.15rem;
+  font-weight: 600;
+}
 
 /* Checkout */
 .checkout-btn {
@@ -303,7 +317,7 @@
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
   color: #fff;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: var(--font-body);
   letter-spacing: 0.01em;
   border-radius: var(--r-md);

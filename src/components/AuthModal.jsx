@@ -35,65 +35,94 @@ export default function AuthModal({ isOpen, onClose }) {
         aria-modal="true"
         aria-labelledby="auth-title"
       >
-        <button className="auth-close" onClick={onClose} aria-label="Close"><IconClose /></button>
+        <button className="auth-close" onClick={onClose} aria-label="Close modal">
+          <IconClose />
+        </button>
 
         {/* Brand */}
         <p className="auth-brand">Tomato<span>.</span></p>
 
         {/* Heading */}
         <h2 className="auth-title" id="auth-title">
-          {isSignUp ? 'Create an account' : 'Welcome back'}
+          {isSignUp ? 'Create your account' : 'Welcome back'}
         </h2>
         <p className="auth-sub">
           {isSignUp
-            ? 'Join thousands enjoying fresh meals daily.'
-            : 'Sign in to access your orders and saved dishes.'}
+            ? 'Join over 2,500 foodies enjoying handcrafted meals daily.'
+            : 'Sign in to access your saved dishes and order history.'}
         </p>
 
         {/* Form */}
         <form className="auth-form" onSubmit={onSubmit} noValidate>
           {isSignUp && (
             <div className="form-field">
-              <label htmlFor="auth-name">Full name</label>
-              <input id="auth-name" type="text" name="name" placeholder="John Appleseed"
-                value={form.name} onChange={onChange} autoComplete="name" required />
+              <label htmlFor="auth-name">Full Name</label>
+              <input
+                id="auth-name"
+                type="text"
+                name="name"
+                placeholder="e.g. Ama Mensah"
+                value={form.name}
+                onChange={onChange}
+                autoComplete="name"
+                required
+              />
             </div>
           )}
           <div className="form-field">
-            <label htmlFor="auth-email">Email address</label>
-            <input id="auth-email" type="email" name="email" placeholder="you@example.com"
-              value={form.email} onChange={onChange} autoComplete="email" required />
+            <label htmlFor="auth-email">Email Address</label>
+            <input
+              id="auth-email"
+              type="email"
+              name="email"
+              placeholder="you@example.com"
+              value={form.email}
+              onChange={onChange}
+              autoComplete="email"
+              required
+            />
           </div>
           <div className="form-field">
             <label htmlFor="auth-password">Password</label>
-            <input id="auth-password" type="password" name="password"
-              placeholder={isSignUp ? 'Min. 8 characters' : 'Your password'}
-              value={form.password} onChange={onChange}
-              autoComplete={isSignUp ? 'new-password' : 'current-password'} required />
+            <input
+              id="auth-password"
+              type="password"
+              name="password"
+              placeholder={isSignUp ? 'Min. 8 characters' : 'Enter your password'}
+              value={form.password}
+              onChange={onChange}
+              autoComplete={isSignUp ? 'new-password' : 'current-password'}
+              required
+            />
           </div>
           <button type="submit" className="auth-submit">
-            {isSignUp ? 'Create Account' : 'Sign In'}
+            {isSignUp ? 'Join & Start Ordering' : 'Sign In'}
           </button>
         </form>
 
         {isSignUp && (
           <div className="auth-terms">
-            <input type="checkbox" id="auth-terms" required />
+            <input type="checkbox" id="auth-terms" defaultChecked required />
             <label htmlFor="auth-terms">
-              By continuing you agree to our{' '}
+              By creating an account, you agree to our{' '}
               <a href="#terms">Terms</a> and <a href="#privacy">Privacy Policy</a>.
             </label>
           </div>
         )}
 
         <div className="auth-divider">
-          <span>{isSignUp ? 'Already have an account?' : "Don't have one?"}</span>
+          <span>{isSignUp ? 'Already a member?' : 'New to Tomato?'}</span>
         </div>
 
         <p className="auth-toggle">
-          <span className="auth-toggle-link" onClick={toggle} role="button" tabIndex={0}
-            onKeyDown={e => e.key === 'Enter' && toggle()}>
-            {isSignUp ? 'Sign in instead' : 'Create a free account'}
+          <span
+            className="auth-toggle-link"
+            onClick={toggle}
+            role="button"
+            tabIndex={0}
+            onKeyDown={e => e.key === 'Enter' && toggle()}
+          >
+            {isSignUp ? 'Sign in to your account' : 'Create an account for free'}
           </span>
         </p>
       </div>

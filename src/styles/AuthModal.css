@@ -55,12 +55,11 @@
 
 /* ── Brand mark ── */
 .auth-brand {
-  font-family: var(--font-display);
-  font-size: 1.4rem;
-  font-weight: 700;
-  font-style: italic;
+  font-family: var(--font-sans);
+  font-size: 1.45rem;
+  font-weight: 600;
   color: var(--ink);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   margin-bottom: var(--sp-5);
 }
 
@@ -68,10 +67,11 @@
 
 /* ── Headings ── */
 .auth-title {
+  font-family: var(--font-sans);
   font-size: 1.35rem;
-  font-weight: 700;
+  font-weight: 600;
   color: var(--ink);
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   margin: 0 0 var(--sp-1);
   line-height: 1.2;
 }
@@ -131,7 +131,7 @@
   background: linear-gradient(135deg, var(--brand) 0%, var(--brand-light) 100%);
   color: #fff;
   font-size: 0.9rem;
-  font-weight: 700;
+  font-weight: 600;
   font-family: var(--font-body);
   border-radius: var(--r-md);
   letter-spacing: 0.01em;

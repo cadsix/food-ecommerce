@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import '../styles/CartModal.css';
 import { useCart } from '../context/CartContext';
 import { foodList } from '../constants/menuData';
@@ -33,8 +33,24 @@ const IconArrow = () => (
   </svg>
 );
 
+const IconPlus = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+    <line x1="12" y1="5" x2="12" y2="19" /><line x1="5" y1="12" x2="19" y2="12" />
+  </svg>
+);
+
+const IconMinus = () => (
+  <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5" strokeLinecap="round">
+    <line x1="5" y1="12" x2="19" y2="12" />
+  </svg>
+);
+
 export default function CartModal() {
-  const { cartItems, deleteFromCart, isCartOpen, setIsCartOpen } = useCart();
+  const { cartItems, addToCart, removeFromCart, deleteFromCart, isCartOpen, setIsCartOpen } = useCart();
+  const [promoCode, setPromoCode] = useState('');
+  const [discount, setDiscount] = useState(0);
+  const [promoMsg, setPromoMsg] = useState('');
+  const [isOrdered, setIsOrdered] = useState(false);
 
   if (!isCartOpen) return null;
 
@@ -42,10 +58,34 @@ export default function CartModal() {
     .map(id => { const item = foodList.find(f => f._id === id); return item ? { ...item, qty: cartItems[id] } : null; })
     .filter(Boolean);
 
-  const subtotal  = items.reduce((s, i) => s + i.price * i.qty, 0);
-  const delivery  = 10;
-  const total     = subtotal + delivery;
-  const totalQty  = items.reduce((s, i) => s + i.qty, 0);
+  const subtotal = items.reduce((s, i) => s + i.price * i.qty, 0);
+  const delivery = subtotal > 50 || discount === 1 ? 0 : (items.length > 0 ? 10 : 0);
+  const discountAmount = discount > 0 && discount < 1 ? Math.round(subtotal * discount) : 0;
+  const total = Math.max(0, subtotal - discountAmount + delivery);
+  const totalQty = items.reduce((s, i) => s + i.qty, 0);
+
+  const handleApplyPromo = (e) => {
+    e.preventDefault();
+    const clean = promoCode.trim().toUpperCase();
+    if (clean === 'SAVE20' || clean === 'CADSIX') {
+      setDiscount(0.20);
+      setPromoMsg('🎉 20% discount applied!');
+    } else if (clean === 'FREESHIP') {
+      setDiscount(1);
+      setPromoMsg('🚚 Free delivery unlocked!');
+    } else if (clean) {
+      setPromoMsg('Invalid promo code. Try SAVE20');
+    }
+  };
+
+  const handleCheckout = () => {
+    setIsOrdered(true);
+    setTimeout(() => {
+      items.forEach(it => deleteFromCart(it._id));
+      setIsOrdered(false);
+      setIsCartOpen(false);
+    }, 2800);
+  };
 
   return (
     <>
@@ -56,7 +96,7 @@ export default function CartModal() {
         {/* Head */}
         <div className="cart-head">
           <div className="cart-title-group">
-            <h2 className="cart-title">Your Cart</h2>
+            <h2 className="cart-title">Your Order</h2>
             {items.length > 0 && (
               <span className="cart-count-pill">{totalQty} item{totalQty !== 1 ? 's' : ''}</span>
             )}
@@ -66,12 +106,37 @@ export default function CartModal() {
           </button>
         </div>
 
-        {/* Empty */}
-        {items.length === 0 ? (
+        {/* Success state */}
+        {isOrdered ? (
+          <div className="cart-empty" style={{ animation: 'fadeIn 0.3s ease' }}>
+            <div style={{
+              width: '64px', height: '64px', borderRadius: '50%',
+              background: 'rgba(34, 165, 91, 0.15)', color: '#22a55b',
+              display: 'flex', alignItems: 'center', justifyContent: 'center',
+              fontSize: '28px'
+            }}>
+              ✓
+            </div>
+            <p style={{ fontSize: '1.2rem', color: 'var(--ink)' }}>Order Placed Fresh!</p>
+            <span style={{ maxWidth: '280px', lineHeight: 1.5 }}>
+              Your kitchen artisans are already prepping your feast. ETA: 20 minutes.
+            </span>
+          </div>
+        ) : items.length === 0 ? (
           <div className="cart-empty">
             <div className="cart-empty-icon"><IconCart /></div>
-            <p>Your cart is empty</p>
-            <span>Add some delicious dishes to get started</span>
+            <p>Your table is empty</p>
+            <span>Add some freshly made artisanal dishes to begin your order.</span>
+            <button
+              className="btn-primary"
+              style={{ marginTop: '1rem', padding: '0.65rem 1.4rem' }}
+              onClick={() => {
+                setIsCartOpen(false);
+                document.getElementById('menu')?.scrollIntoView({ behavior: 'smooth' });
+              }}
+            >
+              Explore Menu
+            </button>
           </div>
         ) : (
           <>
@@ -86,9 +151,34 @@ export default function CartModal() {
                     <p className="cart-item-name">{item.name}</p>
                     <div className="cart-item-meta">
                       <span className="cart-item-unit">Ghc {item.price} each</span>
-                      <span className="cart-item-qty">×{item.qty}</span>
                     </div>
                   </div>
+
+                  {/* Inline micro quantity editor */}
+                  <div style={{
+                    display: 'flex', alignItems: 'center', gap: '6px',
+                    background: 'var(--cream)', padding: '2px 6px',
+                    borderRadius: '9999px', border: '1px solid var(--border)'
+                  }}>
+                    <button
+                      onClick={() => removeFromCart(item._id)}
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)' }}
+                      aria-label="Decrease"
+                    >
+                      <IconMinus />
+                    </button>
+                    <span style={{ fontFamily: 'var(--font-mono)', fontSize: '0.8rem', fontWeight: 600, minWidth: '16px', textAlign: 'center' }}>
+                      {item.qty}
+                    </span>
+                    <button
+                      onClick={() => addToCart(item._id)}
+                      style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', color: 'var(--ink)' }}
+                      aria-label="Increase"
+                    >
+                      <IconPlus />
+                    </button>
+                  </div>
+
                   <span className="cart-item-price">Ghc {item.price * item.qty}</span>
                   <button className="cart-item-del" onClick={() => deleteFromCart(item._id)} aria-label={`Remove ${item.name}`}>
                     <IconTrash />
@@ -100,27 +190,49 @@ export default function CartModal() {
             {/* Footer */}
             <div className="cart-foot">
               {/* Promo */}
-              <p className="promo-label">Promo code</p>
-              <div className="promo-row">
-                <input className="promo-input" type="text" placeholder="Enter code" />
-                <button className="promo-apply" type="button">Apply</button>
-              </div>
+              <p className="promo-label">Promo code (try SAVE20 or FREESHIP)</p>
+              <form className="promo-row" onSubmit={handleApplyPromo}>
+                <input
+                  className="promo-input"
+                  type="text"
+                  placeholder="Enter promo code"
+                  value={promoCode}
+                  onChange={e => setPromoCode(e.target.value)}
+                />
+                <button className="promo-apply" type="submit">Apply</button>
+              </form>
+              {promoMsg && (
+                <p style={{
+                  fontSize: '0.75rem',
+                  color: promoMsg.includes('Invalid') ? '#e8430a' : '#22a55b',
+                  marginBottom: '0.75rem',
+                  fontWeight: 600
+                }}>
+                  {promoMsg}
+                </p>
+              )}
 
               {/* Totals */}
               <div className="totals">
                 <div className="total-row">
                   <span>Subtotal</span><span>Ghc {subtotal}</span>
                 </div>
+                {discountAmount > 0 && (
+                  <div className="total-row" style={{ color: '#22a55b' }}>
+                    <span>Promo Discount (20%)</span><span>-Ghc {discountAmount}</span>
+                  </div>
+                )}
                 <div className="total-row">
-                  <span>Delivery</span><span>Ghc {delivery}</span>
+                  <span>Delivery fee</span>
+                  <span>{delivery === 0 ? <strong style={{ color: '#22a55b' }}>FREE</strong> : `Ghc ${delivery}`}</span>
                 </div>
                 <div className="total-row grand">
                   <span>Total</span><span>Ghc {total}</span>
                 </div>
               </div>
 
-              <button className="checkout-btn">
-                Proceed to Checkout <IconArrow />
+              <button className="checkout-btn" onClick={handleCheckout}>
+                Complete Order • Ghc {total} <IconArrow />
               </button>
             </div>
           </>

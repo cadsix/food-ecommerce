@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/SpecialOffer.css';
 import { food_5 } from '../constants/images';
+import { useCart } from '../context/CartContext';
 
 const IconArrow = () => (
   <svg width="15" height="15" viewBox="0 0 15 15" fill="none" aria-hidden="true">
@@ -9,6 +10,13 @@ const IconArrow = () => (
 );
 
 export default function SpecialOffer() {
+  const { addToCart, setIsCartOpen } = useCart();
+
+  const handleClaimOffer = () => {
+    addToCart('5'); // Lasagna Rolls _id
+    setIsCartOpen(true);
+  };
+
   return (
     <section className="special">
       <div className="wrap">
@@ -16,7 +24,7 @@ export default function SpecialOffer() {
 
           {/* Image side */}
           <div className="special-img">
-            <img src={food_5} alt="Lasagna Rolls — this week's special" loading="lazy" />
+            <img src={food_5} alt="Lasagna Rolls — Chef's feature this week" loading="lazy" />
             <div className="special-badge" aria-label="30 percent off">
               <strong>30%</strong>
               <span>OFF</span>
@@ -25,16 +33,16 @@ export default function SpecialOffer() {
 
           {/* Content side */}
           <div className="special-content">
-            <p className="label">Weekly Special</p>
+            <p className="label">Chef's Weekly Feature</p>
 
             <h2>
-              Our <em>Special Offer</em><br />
-              Going on This Week.
+              Artisanal <em>Lasagna Rolls</em><br />
+              Limited Daily Portions.
             </h2>
 
             <p>
-              Handcrafted with the finest ingredients, our chef's pick this week
-              is sure to delight. Don't miss out — limited portions daily.
+              Handcrafted pasta ribbons filled with creamy whipped ricotta, melted smoked mozzarella,
+              and our signature slow-simmered San Marzano marinara.
             </p>
 
             <div className="special-price">
@@ -43,8 +51,8 @@ export default function SpecialOffer() {
             </div>
 
             <div>
-              <button className="btn-primary">
-                Order Now <IconArrow />
+              <button className="btn-primary" onClick={handleClaimOffer}>
+                Claim Special Offer <IconArrow />
               </button>
             </div>
           </div>

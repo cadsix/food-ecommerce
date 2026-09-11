@@ -36,12 +36,11 @@
 }
 
 .footer-wordmark {
-  font-family: var(--font-display);
+  font-family: var(--font-sans);
   font-size: 1.9rem;
-  font-weight: 700;
-  font-style: italic;
+  font-weight: 600;
   color: #fff;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.03em;
   line-height: 1;
 }
 
@@ -93,8 +92,9 @@
 
 /* ── Nav cols ── */
 .footer-col h4 {
+  font-family: var(--font-mono);
   font-size: 0.72rem;
-  font-weight: 700;
+  font-weight: 600;
   letter-spacing: 0.1em;
   text-transform: uppercase;
   color: rgba(255,255,255,0.5);

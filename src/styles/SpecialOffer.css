@@ -30,18 +30,17 @@
 .special-badge {
   position: absolute;
   top: 1.25rem; left: 1.25rem;
-  width: 60px; height: 60px;
-  border-radius: 50%;
+  padding: 0.5rem 0.85rem;
+  border-radius: var(--r-md);
   background: var(--brand);
   color: #fff;
   display: flex; flex-direction: column;
   align-items: center; justify-content: center;
-  box-shadow: 0 4px 14px var(--brand-glow);
-  animation: spin-slow 10s linear infinite;
+  box-shadow: 0 4px 14px rgba(232, 67, 10, 0.25);
+  font-family: var(--font-mono);
 }
-.special-badge strong { font-size: 1rem; font-weight: 800; line-height: 1; }
-.special-badge span   { font-size: 0.6rem; font-weight: 700; letter-spacing: 0.05em; }
-@keyframes spin-slow { to { transform: rotate(360deg); } }
+.special-badge strong { font-size: 1rem; font-weight: 600; line-height: 1.1; }
+.special-badge span   { font-size: 0.6rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; }
 
 /* Right: content */
 .special-content {
@@ -51,11 +50,11 @@
 }
 
 .special-content h2 {
-  font-family: var(--font-ser);
-  font-size: clamp(1.75rem, 2.8vw, 2.4rem);
-  font-weight: 700;
-  letter-spacing: -0.03em;
-  line-height: 1.12;
+  font-family: var(--font-sans);
+  font-size: clamp(1.8rem, 2.8vw, 2.5rem);
+  font-weight: 600;
+  letter-spacing: -0.035em;
+  line-height: 1.15;
   color: var(--ink);
 }
 .special-content h2 em { font-style: italic; color: var(--brand); }
@@ -69,12 +68,13 @@
   display: flex; align-items: baseline; gap: 0.65rem;
 }
 .special-price .new-price {
-  font-family: var(--font-ser);
-  font-size: 2.2rem; font-weight: 700;
-  color: var(--brand); letter-spacing: -0.03em;
+  font-family: var(--font-mono);
+  font-size: 2.3rem; font-weight: 600;
+  color: var(--brand); letter-spacing: -0.04em;
 }
 .special-price .old-price {
-  font-size: 1.1rem; font-weight: 500;
+  font-family: var(--font-mono);
+  font-size: 1.15rem; font-weight: 500;
   color: var(--ink-3);
   text-decoration: line-through;
 }

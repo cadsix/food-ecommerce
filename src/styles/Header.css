@@ -113,7 +113,8 @@
   padding: 0 3px;
   background: var(--brand);
   color: #fff;
-  font-size: 0.6rem; font-weight: 700;
+  font-family: var(--font-mono);
+  font-size: 0.62rem; font-weight: 600;
   border-radius: var(--r-f);
   display: flex; align-items: center; justify-content: center;
   border: 2px solid var(--cream);
@@ -214,8 +215,9 @@
   border-bottom: 1px solid var(--glass-border);
 }
 .drawer-brand {
-  font-family: var(--font-ser); font-style: italic;
-  font-size: 1.3rem; font-weight: 700;
+  font-family: var(--font-sans);
+  font-size: 1.3rem; font-weight: 600;
+  letter-spacing: -0.03em;
   color: var(--brand);
 }
 .drawer-close {
